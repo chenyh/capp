@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "testsize.h"
+#include "svector.h"
 
 int main()
 {
