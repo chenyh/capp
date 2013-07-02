@@ -6,6 +6,14 @@
 using namespace std;
 
 namespace testsize {
+
+
+	template<typename T>
+	void tsize(T& o)
+	{
+		cout<<"template size"<<sizeof(T)<<" "<<sizeof(o)<<endl;    //4
+	}
+
 	int test()
 	{
 		string str="abc";
@@ -23,6 +31,16 @@ namespace testsize {
 		cout<<sizeof(st)<<endl;   //4
 		cout<<sizeof(q)<<endl;    //4
 		cout<<sizeof(&a)<<endl;   //4
+
+
+
+
+
+		tsize(p);         //    template size8 8
+		tsize(str);       //    template size8 8
+		tsize(st);        //    template size4 4
+		tsize(q);         //    template size8 8
+		tsize(array);     //    template size20 20
 		return 0;
 	}
 }
