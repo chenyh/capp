@@ -1,14 +1,44 @@
-#include <stdio.h>
-#include "testsize.h"
-#include "svector.h"
+#include <iostream>
+using namespace std;
 
-int main()
+#include "function.h"
+#include "typeinfo.h"
+
+void foo()
 {
+	cout << "in foo" << endl;
+}
+
+void bar()
+{
+	cout << "in bar" << endl;
+}
+
 /*
-	int value = 0xf3ff0000;
-	unsigned int uvalue = value;
-	printf("%d, %u", value, uvalue);
+class nulltype {};
+
+template <typename F> struct function;
+template <>
+struct function<void (*)()>
+{
+	typedef nulltype object_type;
+	typedef void result_type;
+	typedef nulltype tlist;
+	static const bool need_thispointer = false;
+};
 */
-	testsize::test();
-	return 1;
+
+template<typename F>
+inline void get_function_info(const char *str, F func)
+{
+	// func;
+	ctype_info  result_type = ctype_name<typename fs::function<F>::result_type>::info();
+}
+
+void test_main()
+{
+	cout << "hello" << endl;
+	get_function_info("", foo);
+	get_function_info("", bar);
+	return 0;
 }

@@ -1,7 +1,7 @@
 CC = g++
 CFLAGS = -Wall -O2
 TARGET = ouput
-OBJS = test.cpp
+OBJS = main.cpp
 LIBS = -lc
 
 .c.o: 
